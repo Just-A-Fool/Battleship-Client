@@ -16,7 +16,7 @@ class Login extends Component {
 
   resetError = () => {
     this.setState({
-      error:null
+      error: null
     })
   }
 
@@ -25,7 +25,7 @@ class Login extends Component {
   handleSubmit = ev => {
     ev.preventDefault();
     const { username, password } = ev.target;
-    
+
     let user = username.value.split(' ').join('');
 
     AuthApiService.postLogin({
@@ -36,7 +36,7 @@ class Login extends Component {
         username.value = '';
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
-      
+
         this.props.history.push('/dashboard');
       })
       .catch(res => {
@@ -50,17 +50,18 @@ class Login extends Component {
   }
 
   render() {
-    let errorMessage = this.state.error ? <p className='login-errorMessage'>{this.state.error}</p>: null;
+    let errorMessage = this.state.error ? <p className='login-errorMessage'>{this.state.error}</p> : null;
 
     return (
       <div className='login'>
         <Banner />
         <h1 className='login-h1'>Login</h1>
-        
+
         <form className='loginform' onSubmit={event => this.handleSubmit(event)} onChange={() => this.resetError()}>
-          <div>
+          <div className='login-input-box'>
             <Label htmlFor='login-username-input'>Username<Required /></Label>
             <Input
+              className='signup-login-input'
               ref={this.firstInput}
               id='login-username-input'
               name='username'
@@ -69,9 +70,10 @@ class Login extends Component {
             />
           </div>
 
-          <div>
+          <div className='login-input-box'>
             <Label htmlFor='login-password-input'>Password<Required /></Label>
             <Input
+              className='signup-login-input'
               id='login-password-input'
               name='password'
               type='password'

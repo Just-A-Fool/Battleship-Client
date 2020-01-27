@@ -77,7 +77,7 @@ class Help extends Component {
 
               <h3 className='left-h3'>Resuming an active game</h3>
               <ol>
-                <li className='li-left-align'>1. To resume a game its as easy as clicking the 'Resume Game' button on the game you wish to enter.</li>
+                <li className='li-left-align'>1. To resume a game it's as easy as clicking the 'Resume Game' button on the game you wish to enter.</li>
                 <li className='li-left-align'>2. Take note that not all games will have an opponent to start off with as we wait to match you against another person.</li>
                 <li className='li-left-align'>3. Games where it is your turn to move are nearer to the top.</li>
               </ol>

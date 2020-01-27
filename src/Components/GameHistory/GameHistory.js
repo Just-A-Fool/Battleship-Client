@@ -39,9 +39,9 @@ class GameHistory extends React.Component {
         if (this.state.history && this.state.history.result.length) {
             userWelcome = <h2 className='historyWelcome'>
                 <span className='username'>
-                    {this.state.history.playerUsername}{this.state.history.playerUsername.charAt(this.state.history.playerUsername.length -1) === 's'
-                ? '\''
-                : '\'s'}</span> Game History</h2>
+                    {this.state.history.playerUsername}{this.state.history.playerUsername.charAt(this.state.history.playerUsername.length - 1) === 's'
+                        ? '\''
+                        : '\'s'}</span> Game History</h2>
 
             completedGames = this.state.history.result.map((game, index) => {
                 let playerUsername = this.state.history.playerUsername;
@@ -61,13 +61,13 @@ class GameHistory extends React.Component {
                     <li key={game.game_id} className='game-history-li'>
                         <div className={index === 0 ? '' : 'line'}></div>
                         <div className='history-info'>
-                        <div className='game-history-region'>
-                            <span className={`player-${winStatus}`}>{winStatus} vs {opponentUsername}</span>
-                            <p>{winnerUsername} won by {winReason}</p>
-                        </div>
-                        <div className='game-history-region'>
-                            <Button onClick={() => this.handleInspect(playerString, game.game_id, playerUsername, opponentUsername, winBool)}>Inspect</Button>
-                        </div>
+                            <div className='game-history-region game-history-outcome'>
+                                <span className={`player-${winStatus}`}>{winStatus} vs {opponentUsername}</span>
+                                <p className='game-history-p'>{winnerUsername} won by {winReason}</p>
+                            </div>
+                            <div className='game-history-region'>
+                                <Button className='game-history-button' onClick={() => this.handleInspect(playerString, game.game_id, playerUsername, opponentUsername, winBool)}>Inspect</Button>
+                            </div>
                         </div>
                     </li>
                 );
@@ -77,10 +77,10 @@ class GameHistory extends React.Component {
         return (
             <div className='gameHistory'>
                 <Header />
-                
+
                 {userWelcome}
                 <h1>Game History</h1>
-                
+
                 <ul className='game-history-list'>
                     {completedGames}
                 </ul>

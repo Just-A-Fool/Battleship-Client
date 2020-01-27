@@ -102,7 +102,7 @@ class ActiveGameListItem extends React.Component {
     return (
       <Fragment>
         <div className={this.props.index === 0 ? '' : 'line'}></div>
-        <li>{this.props.game.player1_username} versus {this.props.game.player2_username}</li>
+        <li>{!this.props.game.player2 ? 'Awaiting opponent...' : `${this.props.game.player1_username} versus ${this.props.game.player2_username}`}</li>
         <li className='activeGameListItem'>
           <ul className='activeGameDetails'>
             <li>Turn: {this.props.userId && this.determineTurn()}</li>
@@ -111,7 +111,7 @@ class ActiveGameListItem extends React.Component {
                 Resume Game?
               </Button>
               {!this.props.game.player2
-                ? <Button className='disabledButton' type='button' disabled>Awaiting opponent...</Button>
+                ? null
                 : <Button onClick={() => this.setState({ quitting: true })}>
                   Quit Game?
                 </Button>}

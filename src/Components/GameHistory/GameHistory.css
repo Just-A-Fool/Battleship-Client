@@ -28,6 +28,19 @@
 
 .game-history-region {
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-history-outcome {
+    flex-direction: column;
+}
+
+.game-history-button {
+    margin: 0;
+}
+.game-history-p {
+    margin-bottom: 0;
 }
 
 .player-Win {
