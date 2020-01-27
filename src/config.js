@@ -1,6 +1,6 @@
 
 const config = {
-    API_ENDPOINT: 'https://capstone3-battleship-server.herokuapp.com'
+    API_ENDPOINT: 'https://aedan-battleship-server.herokuapp.com'
 }
 
 export default config;
