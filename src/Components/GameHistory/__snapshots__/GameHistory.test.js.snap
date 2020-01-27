@@ -164,9 +164,7 @@ exports[`GameHistory component Displays the 'GameHistory' component when rendere
               No game history availiable
             </ul>
             <Footer>
-              <footer>
-                Copyright © since 2020
-              </footer>
+              <footer />
             </Footer>
           </div>
         </GameHistory>

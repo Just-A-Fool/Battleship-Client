@@ -26,49 +26,19 @@ exports[`App Component Renders the Landing Page by default 1`] = `
   >
     <App>
       <main>
-        <Switch>
-          <Route
-            component={[Function]}
-            computedMatch={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
-            exact={true}
-            location={
-              Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              }
-            }
-            path="/"
-          >
-            <withRouter(Landing)
-              history={
+        <ErrorBoundary>
+          <Switch>
+            <Route
+              component={[Function]}
+              computedMatch={
                 Object {
-                  "action": "POP",
-                  "block": [Function],
-                  "createHref": [Function],
-                  "go": [Function],
-                  "goBack": [Function],
-                  "goForward": [Function],
-                  "length": 1,
-                  "listen": [Function],
-                  "location": Object {
-                    "hash": "",
-                    "pathname": "/",
-                    "search": "",
-                    "state": undefined,
-                  },
-                  "push": [Function],
-                  "replace": [Function],
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
                 }
               }
+              exact={true}
               location={
                 Object {
                   "hash": "",
@@ -77,99 +47,136 @@ exports[`App Component Renders the Landing Page by default 1`] = `
                   "state": undefined,
                 }
               }
-              match={
-                Object {
-                  "isExact": true,
-                  "params": Object {},
-                  "path": "/",
-                  "url": "/",
-                }
-              }
+              path="/"
             >
-              <Route>
-                <Landing
-                  history={
-                    Object {
-                      "action": "POP",
-                      "block": [Function],
-                      "createHref": [Function],
-                      "go": [Function],
-                      "goBack": [Function],
-                      "goForward": [Function],
-                      "length": 1,
-                      "listen": [Function],
-                      "location": Object {
-                        "hash": "",
-                        "pathname": "/",
-                        "search": "",
-                        "state": undefined,
-                      },
-                      "push": [Function],
-                      "replace": [Function],
-                    }
-                  }
-                  location={
-                    Object {
+              <withRouter(Landing)
+                history={
+                  Object {
+                    "action": "POP",
+                    "block": [Function],
+                    "createHref": [Function],
+                    "go": [Function],
+                    "goBack": [Function],
+                    "goForward": [Function],
+                    "length": 1,
+                    "listen": [Function],
+                    "location": Object {
                       "hash": "",
                       "pathname": "/",
                       "search": "",
                       "state": undefined,
-                    }
+                    },
+                    "push": [Function],
+                    "replace": [Function],
                   }
-                  match={
-                    Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
-                    }
+                }
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
                   }
-                >
-                  <div
-                    className="landingPage"
+                }
+                match={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+              >
+                <Route>
+                  <Landing
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "createHref": [Function],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
                   >
-                    <header
-                      className="landing"
-                    >
-                      <h1>
-                        BATTLESHIP
-                      </h1>
-                      <nav
-                        aria-label="click to view app info"
-                        className="arrow-nav"
-                      >
-                        <div
-                          className="arrow"
-                          onClick={[Function]}
-                        />
-                      </nav>
-                    </header>
                     <div
-                      aria-live="polite"
-                      id="app-info"
+                      className="landingPage"
                     >
-                      <p
-                        aria-label="app information"
+                      <header
+                        className="landing"
                       >
-                        Welcome to Battleship! The interactive game where you can challenge opponents in the classic game of sinking ships. This application allows the user to play a live game of battleship against another user. The user will receive live updates on their opponents advancements on the game board. Additionally, user's have the ability to leave a game and return to it later. To test out the site please create a new account, or log in with the username: **** and password: ****. Fire Away!
-                      </p>
-                      <ForwardRef
-                        onClick={[Function]}
+                        <h1>
+                          BATTLESHIP
+                        </h1>
+                        <nav
+                          aria-label="click to view app info"
+                          className="arrow-nav"
+                        >
+                          <div
+                            className="arrow"
+                            onClick={[Function]}
+                          />
+                        </nav>
+                      </header>
+                      <div
+                        aria-live="polite"
+                        id="app-info"
                       >
-                        <button
-                          className="Button"
+                        <p
+                          aria-label="app information"
+                        >
+                          Welcome to Battleship! The interactive game where you can challenge opponents in the classic game of sinking ships. This application allows the user to play a live game of battleship against another user. The user will receive live updates on their opponents advancements on the game board. Additionally, user's have the ability to leave a game and return to it later.
+                        </p>
+                        <p
+                          aria-label="app information"
+                        >
+                          To test out the site please create a new account, or log in with the username: TestUser1 and password: Password123. To test the live game feature you will have to log in as a different user via a separate internet browser (ie: Safari, Chrome, Firefox etc.) OR log in on a mobile device using the username: TestUser2 and password: Password123. This will give you the ability to play against yourself in the two separate browsers. Alternatively, you may give the second user login information to a friend and challenge them in a game of Battleship. Fire Away!
+                        </p>
+                        <ForwardRef
                           onClick={[Function]}
                         >
-                           Proceed to Login
-                        </button>
-                      </ForwardRef>
+                          <button
+                            className="Button"
+                            onClick={[Function]}
+                          >
+                             Proceed to Login
+                          </button>
+                        </ForwardRef>
+                      </div>
                     </div>
-                  </div>
-                </Landing>
-              </Route>
-            </withRouter(Landing)>
-          </Route>
-        </Switch>
+                  </Landing>
+                </Route>
+              </withRouter(Landing)>
+            </Route>
+          </Switch>
+        </ErrorBoundary>
       </main>
     </App>
   </Router>

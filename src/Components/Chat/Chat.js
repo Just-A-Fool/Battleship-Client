@@ -18,6 +18,8 @@ export default class Chat extends React.Component {
         }
     }
 
+
+    //Sends a chat message to opponent through the websocket connections
     handleChatMessage = (message) => {
 
         this.props.socket.emit('send-message', { room: this.props.room, message: message });
@@ -48,7 +50,6 @@ export default class Chat extends React.Component {
                     event.target.chatInput.value = '';
                 }}>
                     <fieldset>
-                        {/* <legend>Chat with Opponent</legend> */}
                         <div id='chat-input-box'>
                             <label htmlFor='chatInput' id='chat-label'>Chat</label>
                             <input type='text' placeholder='Type Here' id='chatInput' aria-label='type message to opponent here' />

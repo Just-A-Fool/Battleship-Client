@@ -77,7 +77,9 @@ exports[`Login Component Displays the 'Login' component when rendered 1`] = `
                 </h1>
               </div>
             </Banner>
-            <h1>
+            <h1
+              className="login-h1"
+            >
               Login
             </h1>
             <form

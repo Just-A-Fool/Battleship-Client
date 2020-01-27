@@ -14,16 +14,14 @@ const gameMovesApiService = {
         shipData,
         gameId,
         playerNum
-    })
+      })
     })
       .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : null
       )
-  },
-
-  
+  }
 };
 
 export default gameMovesApiService;

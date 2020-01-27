@@ -109,6 +109,8 @@ class UserGrid extends React.Component {
     };
 
 
+
+    //Sets selected letter from dropdown
     setLetterSelectedFromDropDown = () => {
         var e = document.getElementById('letter-dropdown');
         var value = e.options[e.selectedIndex].value;
@@ -121,13 +123,11 @@ class UserGrid extends React.Component {
         }
         else if (this.state.numberDropdown) {
 
-            if (!this.state.shipTileValues.includes(value + this.state.numberDropdown)) {
-                this.setState({
+            this.setState({
 
-                    letterDropdown: value,
-                    selected: value + this.state.numberDropdown,
-                }, () => this.updateGhostShip())
-            }
+                letterDropdown: value,
+                selected: value + this.state.numberDropdown,
+            }, () => this.updateGhostShip())
 
         }
         else {
@@ -137,6 +137,7 @@ class UserGrid extends React.Component {
         }
     }
 
+    //Sets selected Number from dropdown
     setNumberSelectedFromDropDown = () => {
         var e = document.getElementById('number-dropdown');
         var value = e.options[e.selectedIndex].value;
@@ -150,13 +151,12 @@ class UserGrid extends React.Component {
         }
         else if (this.state.letterDropdown) {
 
-            if (!this.state.shipTileValues.includes(this.state.letterDropdown + value)) {
-                this.setState({
-                    numberDropdown: value,
-                    selected: this.state.letterDropdown + value,
+            this.setState({
+                numberDropdown: value,
+                selected: this.state.letterDropdown + value,
 
-                }, () => this.updateGhostShip())
-            }
+            }, () => this.updateGhostShip())
+
         }
         else {
             this.setState({
@@ -171,6 +171,7 @@ class UserGrid extends React.Component {
             event.preventDefault();
             let valuesArray = this.makeShipTilesFromSelected();
 
+            //Checks to see if tiles have already been used by another boat
             for (let i = 0; i < valuesArray.length; i++) {
                 if (this.state.shipTileValues.includes(valuesArray[i])) {
                     throw new Error('Boat contains tiles occupied by another ship.');
@@ -185,13 +186,7 @@ class UserGrid extends React.Component {
 
         } catch (e) {
             let mess = `${e}`;
-
-            this.setState({
-                selected: '',
-                letterDropdown: '',
-                numberDropdown: '',
-
-            }, () => this.props.setError({ error: mess }));
+            this.props.setError({ error: mess });
         }
     }
 
@@ -204,6 +199,7 @@ class UserGrid extends React.Component {
     }
 
 
+    //Creates ghostship array to let user see where they are about to place the boat.
     updateGhostShip = () => {
         try {
             if (this.state.selected) {
@@ -229,10 +225,11 @@ class UserGrid extends React.Component {
 
             }, () => this.props.setError({ error: message }));
         }
-
-
     }
 
+
+    //Makes an alphanumeric array based on having an origin point.
+    //Goes backwards from origin point if it can no longer go in the designated direction.
     makeShipTilesFromSelected = () => {
         let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
         let numOfTiles = this.state.playerShips[this.state.counter].length;
@@ -244,6 +241,8 @@ class UserGrid extends React.Component {
 
         for (let i = 0; i < numOfTiles; i++) {
             let alphaNumericString = '';
+
+            //If out of bounds
             if (currentNum > 10 || letterIndex > 9) {
 
                 reversedBool = true;
@@ -274,6 +273,7 @@ class UserGrid extends React.Component {
 
 
     handleRenderDropDown = () => {
+        //After some research we found that Alfa is used instead of Alpha in the Nato Military Code so we switched it.
         let letters = ['Alfa', 'Bravo', 'Charlie', 'Delta', 'Echo', 'Foxtrot', 'Golf', 'Hotel', 'India', 'Juliett'];
         let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
@@ -348,8 +348,7 @@ class UserGrid extends React.Component {
 
     /*  
         The following function is used as a callback function after updating the boat values in state. The 
-        function checks the boat length to see if the ship is complete, and sends it to the 'checkBoatValidity'
-        function to be validated. If valid, 'playerShips' in state is updated, as well as the counter 
+        function checks the boat length to see if the ship is complete. If valid, 'playerShips' in state is updated, as well as the counter 
         indicating how many boats have been built
 
     */

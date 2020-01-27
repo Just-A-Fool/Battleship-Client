@@ -35,10 +35,10 @@ class GameBoard extends React.Component {
   }
 
   updateShipsCounter = (shipName, target, sunk) => {
-    let shipsCounter = {...this.state.shipsCounter};
+    let shipsCounter = { ...this.state.shipsCounter };
     shipsCounter[shipName].hit = shipsCounter[shipName].hit + 1;
     shipsCounter[shipName].spaces = [...shipsCounter[shipName].spaces, target]
-    if(sunk){
+    if (sunk) {
       shipsCounter[shipName].sunk = true;
     }
     this.setState({
@@ -86,9 +86,15 @@ class GameBoard extends React.Component {
         }
       }
     });
+
+
+    //Socket listeners
+
+    //Join a random room or the room given.
     let roomName = this.state.room ? this.state.room : 'random';
     socket.emit('join_room', roomName);
 
+    //When the server has joined your socket to the random room
     socket.on('joined', data => {
       this.setState({
         playerNum: data.player,
@@ -99,18 +105,21 @@ class GameBoard extends React.Component {
       })
     });
 
+    //When the server has joined your socket to the specified room
     socket.on('reconnected', () => {
       this.setState({
         socket: socket
       })
     });
 
+    //When the opponent has set their ships
     socket.on('opponent_ready', () => {
       this.setState({
         opponentShipsReady: true
       })
     });
 
+    //When someone has won the game
     socket.on('win', (data) => {
       this.setState({
         winnerSet: true,
@@ -118,6 +127,7 @@ class GameBoard extends React.Component {
       })
     });
 
+    //When both players have joined a room they share their usernames
     socket.on('usernames', (data) => {
       this.setState({
         playerUsername: data.usernames.player,
@@ -131,12 +141,13 @@ class GameBoard extends React.Component {
       })
     });
 
+    //If socket closes
     socket.on('closed', () => {
       this.setState({
         error: 'You have idled for too long, please navigate back to this match from dashboard if you wish to continue.'
       })
     });
-    
+
   }
 
   handleResults = () => {
@@ -148,14 +159,14 @@ class GameBoard extends React.Component {
     this.props.history.push('/result');
   }
 
-    //this function will render the visual to the user showing them their progress
+  //this function will render the visual to the user showing them their progress
   //and how many of the opponent's ships have been hit
   renderCounterList = () => {
     let ships = this.state.shipsCounter;
     let counter = [];
     let shipName = null;
     for (const key in ships) {
-      if (key === 'aircraftCarrier'){
+      if (key === 'aircraftCarrier') {
         shipName = 'Aircraft Carrier'
       } else {
         shipName = key.charAt(0).toUpperCase() + key.slice(1)
@@ -174,7 +185,7 @@ class GameBoard extends React.Component {
 
   determineIfTwoGrids = () => {
     let className = 'grid-box one-only';
-    if((this.state.shipsReady && this.state.opponentShipsReady && this.state.socket)){
+    if ((this.state.shipsReady && this.state.opponentShipsReady && this.state.socket)) {
       className = 'grid-box'
     }
     return className
@@ -256,14 +267,14 @@ class GameBoard extends React.Component {
             {this.renderCounterList()}
           </ul>
         </div>
-        
+
         <div className='outer'>
           <div className={this.determineIfTwoGrids()}>
             {userGrid}
             {opponentGrid}
           </div>
         </div>
-        
+
         {waitingOnOpponent}
         {resultButton}
         {chat}

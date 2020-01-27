@@ -157,7 +157,9 @@ exports[`Help component Displays the 'Result' component when rendered 1`] = `
                 </Header>
               </Route>
             </withRouter(Header)>
-            <h1>
+            <h1
+              className="result-h1"
+            >
               Result
             </h1>
             <ul
@@ -237,11 +239,6 @@ exports[`Help component Displays the 'Result' component when rendered 1`] = `
                  Exit
               </button>
             </ForwardRef>
-            <Footer>
-              <footer>
-                Copyright © since 2020
-              </footer>
-            </Footer>
           </div>
         </Result>
       </Route>

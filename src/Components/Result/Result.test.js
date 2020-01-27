@@ -20,7 +20,7 @@ describe('Help component', () => {
 
   it(`Contains an 'h1' element for displaying the title`, () => {
     const wrapper = mount(<Router><Result /></Router>)
-    expect(wrapper.contains(<h1>Result</h1>)).toEqual(true)
+    expect(wrapper.contains(<h1 className='result-h1'>Result</h1>)).toEqual(true)
   });
 
   it(`Displays an area for the winner`, () => {
@@ -52,5 +52,5 @@ describe('Help component', () => {
     const wrapper = mount(<Router><Result /></Router>)
     expect(wrapper.text()).toMatch(/Shots Missed:/)
   });
-  
+
 });

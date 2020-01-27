@@ -18,19 +18,4 @@ describe('Help component', () => {
     expect(toJson(wrapper)).toMatchSnapshot()
   });
 
-  it(`Contains an 'h3' element for showing how to play`, () => {
-    const wrapper = mount(<Router><Help /></Router>)
-    expect(wrapper.contains(<h3>How to play</h3>)).toEqual(true)
-  });
-
-  it(`Contains an 'h3' element for showing how to resume an active game`, () => {
-    const wrapper = mount(<Router><Help /></Router>)
-    expect(wrapper.contains(<h3>Resuming an active game</h3>)).toEqual(true)
-  });
-
-  it(`Contains an 'h3' element for showing how to start a new game`, () => {
-    const wrapper = mount(<Router><Help /></Router>)
-    expect(wrapper.contains(<h3>New Game</h3>)).toEqual(true)
-  });
-  
 });
