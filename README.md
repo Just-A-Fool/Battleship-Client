@@ -1,8 +1,8 @@
 # Battleship Client
 
-Live app: https://capstone3-battleship.now.sh/
+Live app: https://aedan-battleship.now.sh/
 
-Server GitHub: https://github.com/thinkful-ei-heron/Group1-Capstone3-Server
+Server GitHub: https://github.com/Just-A-Fool/Battleship-Server
 
 ## Summary
 
