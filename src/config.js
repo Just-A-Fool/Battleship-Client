@@ -1,5 +1,5 @@
 const config = {
-    API_ENDPOINT: 'http://localhost:8000' //'https://aedan-battleship-server.herokuapp.com'
+    API_ENDPOINT: 'https://aedan-battleship-server.herokuapp.com'
 }
 
 export default config;
